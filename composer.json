@@ -1,0 +1,15 @@
+{
+    "name": "doghouse/location",
+    "type": "magento-module",
+    "license":"OSL-3.0",
+    "description":"List and manage your store locations with this blazing module.",
+    "authors":[
+        {
+            "name":"Erfan Imani",
+            "email":"erfan@dhmedia.com.au"
+        }
+    ],
+    "require": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<layout>
+
+    <adminhtml_location_index>
+        <reference name="content">
+            <block type="dhlocation/adminhtml_location" name="location"></block>
+        </reference>
+    </adminhtml_location_index>
+
+    <adminhtml_location_new>
+        <reference name="head">
+            <action method="setCanLoadExtJs"><flag>1</flag></action>
+            <action method="setCanLoadRulesJs"><flag>1</flag></action>
+        </reference>
+
+        <reference name="left">
+            <block type="dhlocation/adminhtml_location_edit_tabs" name="location_tabs">
+                <block type="dhlocation/adminhtml_location_edit_tab_main" name="location_tab_main" />
+                <block type="dhlocation/adminhtml_location_edit_tab_hour" name="location_tab_hour">
+                    <block type="dhlocation/adminhtml_location_edit_tab_hour_form" name="location_tab_hour_form"/>
+                    <block type="dhlocation/adminhtml_location_edit_tab_hour_grid" name="location_tab_hour_grid"/>
+                </block>
+                <action method="addTab"><name>location_main_section</name><block>location_tab_main</block></action>
+                <action method="addTab"><name>location_hour_section</name><block>location_tab_hour</block></action>
+            </block>
+            <block type="adminhtml/template" template="doghouse/location/hourjs.phtml" name="location_hour_edit_jsinit"/>
+        </reference>
+
+        <reference name="content">
+            <block type="dhlocation/adminhtml_location_edit" name="location_edit"></block>
+        </reference>
+    </adminhtml_location_new>
+
+    <adminhtml_location_edit>
+        <update handle="adminhtml_location_new" />
+    </adminhtml_location_edit>
+
+</layout>

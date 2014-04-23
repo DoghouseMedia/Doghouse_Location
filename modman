@@ -1,0 +1,4 @@
+Location/ app/code/community/Doghouse/Location/
+Doghouse_Location.xml app/etc/modules/Doghouse_Location.xml
+design/adminhtml/default/default/template/doghouse/location app/design/adminhtml/default/default/template/doghouse/location
+design/adminhtml/default/default/layout/doghouse/location.xml app/design/adminhtml/default/default/layout/doghouse/location.xml

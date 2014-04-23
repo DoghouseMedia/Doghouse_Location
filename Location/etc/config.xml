@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Doghouse_Location>
+            <version>0.1.1</version>
+        </Doghouse_Location>
+    </modules>
+
+    <global>
+        <blocks>
+            <dhlocation>
+                <class>Doghouse_Location_Block</class>
+            </dhlocation>
+        </blocks>
+
+        <models>
+            <dhlocation>
+                <class>Doghouse_Location_Model</class>
+                <resourceModel>dhlocation_resource</resourceModel>
+            </dhlocation>
+            <dhlocation_resource>
+                <class>Doghouse_Location_Model_Resource</class>
+                <entities>
+                    <location>
+                        <table>dhlocation_location</table>
+                    </location>
+                    <hour>
+                        <table>dhlocation_hour</table>
+                    </hour>
+                </entities>
+            </dhlocation_resource>
+        </models>
+
+        <helpers>
+            <dhlocation>
+                <class>Doghouse_Location_Helper</class>
+            </dhlocation>
+        </helpers>
+
+        <resources>
+            <dhlocation_setup>
+                <setup>
+                    <module>Doghouse_Location</module>
+                </setup>
+            </dhlocation_setup>
+
+            <dhlocation_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </dhlocation_write>
+
+            <dhlocation_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </dhlocation_read>
+        </resources>
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <dhlocation>
+                    <file>doghouse/location.xml</file>
+                </dhlocation>
+            </updates>
+        </layout>
+    </adminhtml>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <dhlocation after="Mage_Adminhtml">Doghouse_Location_Adminhtml</dhlocation>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+
+</config>

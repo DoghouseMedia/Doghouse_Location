@@ -36,16 +36,17 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Form
 
 		$fieldset->addField("open", "text", array(
 			"label" => Mage::helper("dhlocation")->__("Opening time"),
-			"class" => "required-entry",
-			"required" => true,
+			//"class" => "required-entry",
+			//"required" => true,
 			"name" => "open"
 		));
 
 		$fieldset->addField("close", "text", array(
 			"label" => Mage::helper("dhlocation")->__("Closing time"),
-			"class" => "required-entry",
-			"required" => true,
-			"name" => "close"
+			//"class" => "required-entry",
+			//"required" => true,
+			"name" => "close",
+            "after_element_html" => "<br /><small>If opening and closing time are empty, it will appear as \"closed\"</small>",
 		));
 
         $idPrefix = $form->getHtmlIdPrefix();

@@ -49,6 +49,7 @@
 /module_sources/
 /database_dumps/
 /sass-cache/
+.DS_Store
 
 ### TESTING
 

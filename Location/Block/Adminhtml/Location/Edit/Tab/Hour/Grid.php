@@ -46,11 +46,13 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid extends Mage
         $this->addColumn("hour_open", array(
             "header" => Mage::helper("dhlocation")->__("Opening time"),
             "index" => "open",
+            "renderer" => "Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid_Renderer_Time",
         ));
 
         $this->addColumn("hour_close", array(
             "header" => Mage::helper("dhlocation")->__("Closing time"),
             "index" => "close",
+            "renderer" => "Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid_Renderer_Time",
         ));
 
         $this->addColumn('hour_created_at', array(

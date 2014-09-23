@@ -94,8 +94,6 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Main
 
         $fieldset->addField("image", "image", array(
             "label" => Mage::helper("dhlocation")->__("Image"),
-            "class" => "required-entry",
-            "required" => true,
             "name" => "image",
         ));
 

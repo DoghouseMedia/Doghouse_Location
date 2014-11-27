@@ -116,8 +116,11 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Main
             Mage::getSingleton("adminhtml/session")->setLocationData(null);
         }
 
-        //$form->setUseContainer(true);
+        // Don't use container because we don't want this block to ouput the <form> tags
+        // $form->setUseContainer(true);
         $this->setForm($form);
+
+        Mage::dispatchEvent('dhlocation_location_edit_form_prepare_form', array('block' => $this));
 
         return parent::_prepareForm();
     }

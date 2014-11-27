@@ -84,6 +84,8 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
             'index'     => 'updated_at',
         ));
 
+        Mage::dispatchEvent('dhlocation_location_grid_prepare_after', array('block' => $this));
+
         return parent::_prepareColumns();
 
     }

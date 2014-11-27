@@ -62,15 +62,12 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
                         if($filename = Mage::helper('dhlocation')->saveImage('image')) {
                             $post_data['image'] = $filename;
                         }
-                    } else {
-                        if(!$this->getRequest()->getParam("id")) {
-                            throw new Exception('An image is required!');
-                        }
-                        unset($post_data['image']);
+                    } elseif (isset($post_data['image']['delete']) && $post_data['image']['delete']) {
+                        $post_data['image'] = null;
                     }
 
                     $model = Mage::getModel("dhlocation/location")
-                        ->addData($post_data)
+                        ->setData($post_data)
                         ->setId($this->getRequest()->getParam("id"))
                         ->save();
 

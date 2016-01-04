@@ -1,12 +1,15 @@
 <?php
 
-class Doghouse_Location_Block_Location extends Mage_Core_Block_Template {
+class Doghouse_Location_Block_Location extends Mage_Core_Block_Template
+{
 
-	public function getLocations() {
-		return Mage::getModel('dhlocation/location')->getCollection();
-	}
+    public function getLocations()
+    {
+        return Mage::getModel('dhlocation/location')->getCollection();
+    }
 
-    public function getLocationsByState() {
+    public function getLocationsByState()
+    {
         $collection = $this->getLocations();
         $groups = array();
         foreach($collection as $item) {
@@ -20,8 +23,9 @@ class Doghouse_Location_Block_Location extends Mage_Core_Block_Template {
         return $groups;
     }
 
-	public function getHours(Doghouse_Location_Model_Location $location) {
+    public function getHours(Doghouse_Location_Model_Location $location)
+    {
         return $location->getHours()->sortByWeekDay();
-	}
+    }
 
 }

@@ -1,78 +1,78 @@
 <script type="text/javascript">
 
-	var DOGHOUSE = DOGHOUSE || {};
+    var DOGHOUSE = DOGHOUSE || {};
 
-	DOGHOUSE.Location = (function($){
+    DOGHOUSE.Location = (function($){
 
-		var saveHour = function(idPrefix, saveUrl, grid) {
+        var saveHour = function(idPrefix, saveUrl, grid) {
 
-			var fieldsetId = idPrefix + 'location_form',
-				formEl = $(fieldsetId);
+            var fieldsetId = idPrefix + 'location_form',
+                formEl = $(fieldsetId);
 
-			// We want validation now
-			formEl.removeClassName('ignore-validate');
+            // We want validation now
+            formEl.removeClassName('ignore-validate');
 
-			//Validate form
-		    var validationResult = formEl.select('input',
-		            'select', 'textarea').collect( function(elm) {
-		        return Validation.validate(elm, {
-		            useTitle :false,
-		            onElementValidate : function() {
-		            }
-		        });
-		    }).all();
+            //Validate form
+            var validationResult = formEl.select('input',
+                    'select', 'textarea').collect( function(elm) {
+                return Validation.validate(elm, {
+                    useTitle :false,
+                    onElementValidate : function() {
+                    }
+                });
+            }).all();
 
-		    // Put ignore validation back
-		    formEl.addClassName('ignore-validate');
+            // Put ignore validation back
+            formEl.addClassName('ignore-validate');
 
-		    if (!validationResult) {
-		        return;
-		    }
+            if (!validationResult) {
+                return;
+            }
 
-		    // Grab elements and serialize the form
-		    var elements = formEl.select('input', 'select', 'textarea'),
-				params = Form.serializeElements(elements, true);
+            // Grab elements and serialize the form
+            var elements = formEl.select('input', 'select', 'textarea'),
+                params = Form.serializeElements(elements, true);
 
-			// Add adminhtml form key
-		    params.form_key = FORM_KEY;
+            // Add adminhtml form key
+            params.form_key = FORM_KEY;
 
-		    // ???
-		    $('messages').update();
+            // ???
+            $('messages').update();
 
-			var hourGrid = eval(grid);
+            var hourGrid = eval(grid);
 
-		    new Ajax.Request(saveUrl, {
-		        parameters : params,
-		        method : 'post',
-		        onComplete : function (transport, param){
-		            var response = false;
-		            if (transport && transport.responseText) {
-		                response = eval('(' + transport.responseText + ')');
-		            }
-		            if (hourGrid) {
-		                hourGrid.reload();
-		            }
-		            if (response && response.messages) {
-		                $('messages').update(response.messages);
-		            }
-		            if (response && response.error) {
-		                alert(response.error);
-		            }
-		        }
-		    });
+            new Ajax.Request(saveUrl, {
+                parameters : params,
+                method : 'post',
+                onComplete : function (transport, param){
+                    var response = false;
+                    if (transport && transport.responseText) {
+                        response = eval('(' + transport.responseText + ')');
+                    }
+                    if (hourGrid) {
+                        hourGrid.reload();
+                    }
+                    if (response && response.messages) {
+                        $('messages').update(response.messages);
+                    }
+                    if (response && response.error) {
+                        alert(response.error);
+                    }
+                }
+            });
 
-		},
+        },
 
-		refreshHourGrid = function(grid, gridMassAction, transport) {
-		    grid.reload();
-		    gridMassAction.unselectAll();
-		};
+        refreshHourGrid = function(grid, gridMassAction, transport) {
+            grid.reload();
+            gridMassAction.unselectAll();
+        };
 
-		return {
-			saveHour: saveHour,
-			refreshHourGrid: refreshHourGrid
-		};
+        return {
+            saveHour: saveHour,
+            refreshHourGrid: refreshHourGrid
+        };
 
-	}($));
+    }($));
 
 </script>

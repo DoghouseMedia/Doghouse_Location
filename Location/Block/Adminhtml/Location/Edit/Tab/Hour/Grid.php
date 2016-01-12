@@ -1,6 +1,7 @@
 <?php
 
-class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid extends Mage_Adminhtml_Block_Widget_Grid
+class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
+    extends Mage_Adminhtml_Block_Widget_Grid
 {
 
     public function __construct()
@@ -29,14 +30,6 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid extends Mage
 
     protected function _prepareColumns()
     {
-
-        /*$this->addColumn("hour_id", array(
-            "header" => Mage::helper("dhlocation")->__("ID"),
-            "align" =>"right",
-            "width" => "50px",
-            "type" => "number",
-            "index" => "id",
-        ));*/
 
         $this->addColumn("hour_day", array(
             "header" => Mage::helper("dhlocation")->__("Day"),

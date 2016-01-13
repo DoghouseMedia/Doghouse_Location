@@ -3,7 +3,7 @@
     "type": "magento-module",
     "license":"OSL-3.0",
     "description":"Magento extension for managing store locations, opening hours and more.",
-    "homepage":"http://stash.dhmedia.com.au/projects/DMMODULES/repos/location-magento-2014",
+    "homepage":"https://github.com/DoghouseMedia/Doghouse_Location",
     "authors":[
         {
             "name":"Erfan Imani",

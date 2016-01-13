@@ -16,5 +16,8 @@
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "*"
+    },
+    "archive": {
+        "exclude": ["/doghouse_location_screenshot.png"]
     }
 }

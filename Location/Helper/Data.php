@@ -1,7 +1,19 @@
 <?php
-
+/**
+ * Doghouse_Location_Helper_Data
+ *
+ * @category  Doghouse
+ * @package   Doghouse_Location
+ * @author    Doghouse <support@dhmedia.com.au>
+ * @copyright 2015 Doghouse Media (http://doghouse.agency)
+ * @license   https://github.com/DoghouseMedia/Doghouse_Location/blob/master/LICENSE  The MIT License (MIT)
+ * @link      https://github.com/DoghouseMedia/Doghouse_Location
+ */
 class Doghouse_Location_Helper_Data extends Mage_Core_Helper_Abstract {
 
+    /**
+     * Image lcoation
+     */
 	const MEDIA_DIR = 'dhlocation/';
 
     /**
@@ -53,6 +65,5 @@ class Doghouse_Location_Helper_Data extends Mage_Core_Helper_Abstract {
     public function getImage(Doghouse_Location_Model_Location $item) {
     	return $this->getImageUrl() . $item->getImage();
     }
-
 
 }

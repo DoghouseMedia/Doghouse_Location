@@ -1,5 +1,4 @@
 <config>
-
     <menu>
         <cms>
             <children>
@@ -18,10 +17,14 @@
             </all>
             <admin>
                 <children>
-                    <dhlocation translate="title" module="dhlocation">
-                        <title>Locations</title>
-                        <sort_order>1100</sort_order>
-                    </dhlocation>
+                    <cms>
+                        <children>
+                            <dhlocation translate="title" module="dhlocation">
+                                <title>Locations</title>
+                                <sort_order>1100</sort_order>
+                            </dhlocation>
+                        </children>
+                    </cms>
                 </children>
             </admin>
         </resources>

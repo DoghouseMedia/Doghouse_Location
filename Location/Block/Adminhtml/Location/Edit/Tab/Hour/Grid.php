@@ -1,9 +1,23 @@
 <?php
-
+/**
+ * Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
+ *
+ * @category  Doghouse
+ * @package   Doghouse_Location
+ * @author    Doghouse <support@dhmedia.com.au>
+ * @copyright 2015 Doghouse Media (http://doghouse.agency)
+ * @license   https://github.com/DoghouseMedia/Doghouse_Location/blob/master/LICENSE  The MIT License (MIT)
+ * @link      https://github.com/DoghouseMedia/Doghouse_Location
+ */
 class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
     extends Mage_Adminhtml_Block_Widget_Grid
 {
 
+    /**
+     * Construct the grid.
+     *
+     * Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -14,6 +28,11 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
         $this->setSaveParametersInSession(true);
     }
 
+    /**
+     * Prepare the collection for the grid.
+     *
+     * @return Mage_Adminhtml_Block_Widget_Grid
+     */
     protected function _prepareCollection()
     {
         $location = Mage::registry('location_data');
@@ -28,6 +47,12 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
         return parent::_prepareCollection();
     }
 
+    /**
+     * Prepare the columns.
+     *
+     * @return $this
+     * @throws Exception
+     */
     protected function _prepareColumns()
     {
 
@@ -66,11 +91,21 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
 
     }
 
+    /**
+     * Grid Url.
+     *
+     * @return string
+     */
     public function getGridUrl()
     {
         return $this->getUrl('*/hour/grid', array('_current'=>true));
     }
 
+    /**
+     * Prepare mass actions for the grid.
+     *
+     * @return $this
+     */
     protected function _prepareMassaction()
     {
         $this->setMassactionIdField('hour_id');

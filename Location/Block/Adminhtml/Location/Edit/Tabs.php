@@ -13,7 +13,7 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tabs extends Mage_Adminhtm
 {
 
     /**
-     * COnstruct the lcoation tabs.
+     * Construct the lcoation tabs.
      *
      * Doghouse_Location_Block_Adminhtml_Location_Edit_Tabs constructor.
      */

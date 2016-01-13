@@ -1,20 +1,22 @@
 Doghouse Location
 =================
 
-List your store locations in the frontend and manage them in the admin section. Blazingly fast and amazing module. Again, continuing the trend of things that make no design-decisions for you, this module doesn't actually show anything in the frontend. It just comes with an amazing backend interface.
-
-You know what! You can use [Slick](http://kenwheeler.github.io/slick/) to show off your stores - that would look slick!
+List your store locations in the frontend and manage them in the admin section. Blazingly fast and amazing module. Again, continuing the trend of things that make no design-decisions for you, this module doesn't actually show anything in the frontend. It just comes with a nice backend interface.
 
 ## Features
 
 - Really nice Adminhtml grid with day of the week sorting, store location - opening hour relations, image preview and everything
 - Comes free with foreign keys and all that stuff
 - It doesn't do anything on the front-end. That's up to you
-- You can put stuff in it in the back-end
+- You can put stuff in it in the admin panel
+
+## Screenshot
+
+![Doghouse Location screenshot of admin panel](doghouse_location_screenshot.png?raw=true "Doghouse Location screenshot of admin panel")
 
 ## Installation
 
-Install using Composer (preferred) or Modman.
+Install using *Composer* (preferred) or *Modman*. Don't just drag this into your project without being aware of the directory structure.
 
 ## Docs
 
@@ -24,13 +26,13 @@ Getting a collection of your store locations. Wow!
 
 `Mage::getModel('dhlocation/location')->getCollection();`
 
-Getting a collection of your opening hours by location `$id`, and sorting them by weekday. Shet!
+Getting a collection of your opening hours by location `$id`, and sorting them by weekday.
 
 	Mage::getModel('dhlocation/hour')->getCollection()
 		->addFieldToFilter('location_id', $id)
 		->sortByWeekDay();
 
-Showing how nice your store with `$id` is. So amaze!
+Showing how nice your store with `$id` is.
 
 	$store = Mage::getModel('dhlocation/location')->load($id);
 
@@ -40,4 +42,4 @@ That's it.
 
 ## About
 
-Created initially for ZOMP by [Erfan](mailto:erfan@dhmedia.com.au).
+Created by [Doghouse](http://doghouse.agency/) because we needed a user-friendly way of getting store locations in the database. It's bloat free, has plenty of events that you can listen to (if that's your thing), and can be used in any project because it doesn't output any HTML or make any design decisions for you.

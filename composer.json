@@ -2,12 +2,16 @@
     "name": "doghouse/location",
     "type": "magento-module",
     "license":"OSL-3.0",
-    "description":"List and manage your store locations with this blazing module.",
+    "description":"Magento extension for managing store locations, opening hours and more.",
     "homepage":"http://stash.dhmedia.com.au/projects/DMMODULES/repos/location-magento-2014",
     "authors":[
         {
             "name":"Erfan Imani",
             "email":"erfan@dhmedia.com.au"
+        },
+        {
+            "name":"Rob Shepherd",
+            "email":"rob@dhmedia.com.au"
         }
     ],
     "require": {

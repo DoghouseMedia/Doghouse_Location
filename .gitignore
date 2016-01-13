@@ -50,6 +50,7 @@
 /database_dumps/
 /sass-cache/
 .DS_Store
+._*
 
 ### TESTING
 

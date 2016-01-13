@@ -1,7 +1,7 @@
 Doghouse Location
 =================
 
-List your store locations in the frontend and manage them in the admin section. Blazingly fast and amazing module. Again, continuing the trend of things that make no design-decisions for you, this module doesn't actually show anything in the frontend. It just comes with a nice backend interface.
+List your store locations in the frontend and manage them in the admin section. Again, continuing the trend of things that make no design-decisions for you, this module doesn't actually show anything in the frontend. It just comes with a nice backend interface.
 
 ## Features
 
@@ -16,7 +16,7 @@ List your store locations in the frontend and manage them in the admin section. 
 
 ## Installation
 
-Install using *Composer* (preferred) or *Modman*. Don't just drag this into your project without being aware of the directory structure.
+Install using **Composer** (preferred) or **Modman**. Don't just drag this into your project without being aware of the directory structure.
 
 ## Docs
 

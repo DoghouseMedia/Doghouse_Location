@@ -1,8 +1,20 @@
 <?php
-
+/**
+ * Doghouse_Location_Adminhtml_HourController
+ *
+ * @category  Doghouse
+ * @package   Doghouse_Location
+ * @author    Doghouse <support@dhmedia.com.au>
+ * @copyright 2015 Doghouse Media (http://doghouse.agency)
+ * @license   https://github.com/DoghouseMedia/Doghouse_Location/blob/master/LICENSE  The MIT License (MIT)
+ * @link      https://github.com/DoghouseMedia/Doghouse_Location
+ */
 class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controller_Action
 {
 
+    /**
+     * Init location action.
+     */
     protected function _initLocation()
     {
 
@@ -18,6 +30,11 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
         }
     }
 
+    /**
+     * Save Hours Action.
+     *
+     * @return void|Zend_Controller_Response_Abstract
+     */
     public function saveAction()
     {
 
@@ -58,6 +75,9 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
 
     }
 
+    /**
+     * Mass delete from hours grid.
+     */
     public function massRemoveAction()
     {
 
@@ -82,6 +102,11 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
 
     }
 
+    /**
+     * Grid action for hours.
+     *
+     * @return Zend_Controller_Response_Abstract
+     */
     public function gridAction()
     {
         $this->_initLocation();
@@ -92,6 +117,11 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
         );
     }
 
+    /**
+     * Check acl permission for location.
+     *
+     * @return mixed
+     */
     protected function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('cms/dhlocation');

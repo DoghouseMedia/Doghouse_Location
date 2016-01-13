@@ -1,8 +1,21 @@
 <?php
-
+/**
+ * Doghouse_Location_Block_Adminhtml_Location_Grid
+ *
+ * @category  Doghouse
+ * @package   Doghouse_Location
+ * @author    Doghouse <support@dhmedia.com.au>
+ * @copyright 2015 Doghouse Media (http://doghouse.agency)
+ * @license   https://github.com/DoghouseMedia/Doghouse_Location/blob/master/LICENSE  The MIT License (MIT)
+ * @link      https://github.com/DoghouseMedia/Doghouse_Location
+ */
 class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Block_Widget_Grid
 {
-
+    /**
+     * Construct the location grid.
+     *
+     * Doghouse_Location_Block_Adminhtml_Location_Grid constructor.
+     */
     public function __construct()
     {
         parent::__construct();
@@ -13,12 +26,23 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
         $this->setSaveParametersInSession(true);
     }
 
+    /**
+     * Prepare collection for the location grid.
+     *
+     * @return Mage_Adminhtml_Block_Widget_Grid
+     */
     protected function _prepareCollection()
     {
         $this->setCollection(Mage::getModel("dhlocation/location")->getCollection());
         return parent::_prepareCollection();
     }
 
+    /**
+     * Prepare columns for location grid.
+     *
+     * @return $this
+     * @throws Exception
+     */
     protected function _prepareColumns()
     {
 
@@ -90,16 +114,32 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
 
     }
 
+    /**
+     * Get location row url.
+     *
+     * @param $row
+     * @return string
+     */
     public function getRowUrl($row)
     {
         return $this->getUrl("*/*/edit", array("id" => $row->getId()));
     }
 
+    /**
+     * Ger location grid url.
+     *
+     * @return string
+     */
     public function getGridUrl()
     {
         return $this->getUrl('*/*/grid', array('_current'=>true));
     }
 
+    /**
+     * Prepare mass action for location grid.
+     *
+     * @return $this
+     */
     protected function _prepareMassaction()
     {
         $this->setMassactionIdField('id');

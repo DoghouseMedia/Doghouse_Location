@@ -1,8 +1,22 @@
 <?php
-
+/**
+ * Doghouse_Location_Adminhtml_LocationController
+ *
+ * @category  Doghouse
+ * @package   Doghouse_Location
+ * @author    Doghouse <support@dhmedia.com.au>
+ * @copyright 2015 Doghouse Media (http://doghouse.agency)
+ * @license   https://github.com/DoghouseMedia/Doghouse_Location/blob/master/LICENSE  The MIT License (MIT)
+ * @link      https://github.com/DoghouseMedia/Doghouse_Location
+ */
 class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Controller_Action
 {
 
+    /**
+     * Init the menu.
+     *
+     * @return $this
+     */
     protected function _initAction()
     {
         $this->loadLayout()->_setActiveMenu("cms/dhlocation");
@@ -10,14 +24,25 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         return $this;
     }
 
+    /**
+     * Index action for locations.
+     *
+     * @return string
+     */
     public function indexAction()
     {
         $this->_title($this->__("Manage Store Locations"));
         $this->_initAction();
 
         $this->renderLayout();
+        return $this.
     }
 
+    /**
+     * New Locations Action.
+     *
+     * @return $this
+     */
     public function newAction()
     {
         $this->_title($this->__("New Store Location"));
@@ -28,8 +53,12 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         Mage::register("location_data", $model);
 
         $this->renderLayout();
+        return $this;
     }
 
+    /**
+     * Edit Locations Action.
+     */
     public function editAction()
     {
         $this->_title($this->__("Edit Store Location"));
@@ -47,7 +76,10 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
             $this->_redirect("*/*/");
         }
     }
-    
+
+    /**
+     * Save Locations.
+     */
     public function saveAction()
     {
 
@@ -96,6 +128,9 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
             $this->_redirect("*/*/");
     }
 
+    /**
+     * Delete Locations.
+     */
     public function deleteAction()
     {
             if( $this->getRequest()->getParam("id") > 0 ) {
@@ -113,7 +148,9 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
             $this->_redirect("*/*/");
     }
 
-
+    /**
+     * Mass Delete on locations grid.
+     */
     public function massRemoveAction()
     {
         try {
@@ -130,6 +167,11 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         $this->_redirect('*/*/');
     }
 
+    /**
+     * Location grid.
+     *
+     * @return Zend_Controller_Response_Abstract
+     */
     public function gridAction()
     {
         $this->loadLayout();
@@ -138,7 +180,11 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         );
     }
 
-
+    /**
+     * Check acl permission for locations.
+     *
+     * @return mixed
+     */
     protected function _isAllowed()
     {
         return Mage::getSingleton('admin/session')->isAllowed('cms/dhlocation');

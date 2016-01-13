@@ -36,7 +36,7 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
         ));
 
         $this->addColumn("image", array(
-            "header" => Mage::helper("dhcarousel")->__("Image"),
+            "header" => Mage::helper("dhlocation")->__("Image"),
             "index" => "image",
             "width" => "200px",
             "renderer" => "Doghouse_Location_Block_Adminhtml_Location_Grid_Renderer_Image",

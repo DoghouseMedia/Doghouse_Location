@@ -92,4 +92,9 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
         );
     }
 
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/dhlocation');
+    }
+
 }

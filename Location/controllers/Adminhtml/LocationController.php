@@ -47,7 +47,7 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
             $this->_redirect("*/*/");
         }
     }
-
+    
     public function saveAction()
     {
 
@@ -138,4 +138,9 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         );
     }
 
+
+    protected function _isAllowed()
+    {
+        return Mage::getSingleton('admin/session')->isAllowed('cms/dhlocation');
+    }
 }

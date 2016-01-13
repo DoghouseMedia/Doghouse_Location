@@ -7,7 +7,14 @@ class Doghouse_Location_Model_Resource_Hour_Collection extends Mage_Core_Model_R
         $this->_init('dhlocation/hour');
     }
 
-    static function sortByWeekDayFunc($a, $b) {
+	/**
+	 * Sorts Hours by Day.
+	 *
+	 * @param $a
+	 * @param $b
+	 * @return int
+	 */
+    public static function sortByWeekDayFunc($a, $b) {
 
     	$a = substr(strtolower($a->getDay()), 0, 2);
     	$b = substr(strtoLower($b->getDay()), 0, 2);
@@ -33,6 +40,11 @@ class Doghouse_Location_Model_Resource_Hour_Collection extends Mage_Core_Model_R
 
     }
 
+	/**
+	 * Sorts location hours by weekDay.
+	 *
+	 * @return $this
+	 */
     public function sortByWeekDay() {
 
     	if(!$this->_isCollectionLoaded) {

@@ -36,7 +36,7 @@ Showing how nice your store with `$id` is.
 
 	$store = Mage::getModel('dhlocation/location')->load($id);
 
-	echo '<img src="' . Mage::helper('dhlocation')->getImage($store) . '"/>'
+	echo '<img src="' . $this->quoteEscape(Mage::helper('dhlocation')->getImage($store)) . '"/>'
 
 That's it.
 

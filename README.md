@@ -44,6 +44,6 @@ That's it.
 
 Created by [Doghouse](http://doghouse.agency/) because we needed a user-friendly way of getting store locations in the database. It's bloat free, has plenty of events that you can listen to (if that's your thing), and can be used in any project because it doesn't output any HTML or make any design decisions for you.
 
-# License
+## License
 
 [MIT License](https://opensource.org/licenses/MIT)

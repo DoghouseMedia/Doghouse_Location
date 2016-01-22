@@ -35,7 +35,7 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         $this->_initAction();
 
         $this->renderLayout();
-        return $this.
+        return $this;
     }
 
     /**

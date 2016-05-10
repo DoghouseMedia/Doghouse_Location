@@ -41,7 +41,7 @@ class Doghouse_Location_Helper_Data extends Mage_Core_Helper_Abstract {
         $path = $this->getFullImagesDir();
 
         try {
-            $uploader = new Mage_Core_Model_File_Uploader($name);
+            $uploader = Mage::getModel('core/file_uploader', $name);
             $uploader->setAllowedExtensions(array('jpg','jpeg','gif','png'));
             $uploader->setAllowRenameFiles(true);
             $result = $uploader->save($path);

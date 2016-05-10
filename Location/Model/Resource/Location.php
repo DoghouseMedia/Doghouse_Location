@@ -35,5 +35,4 @@ class Doghouse_Location_Model_Resource_Location extends Mage_Core_Model_Resource
         $data = parent::_prepareDataForSave($object);
         return $data;
     }
-
 }

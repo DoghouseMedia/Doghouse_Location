@@ -31,7 +31,6 @@ class Doghouse_Location_Model_Location extends Mage_Core_Model_Abstract
      */
     public function getHours()
     {
-
         if (!$this->_hours) {
             $this->_hours = Mage::getModel('dhlocation/hour')
                 ->getCollection()
@@ -40,5 +39,4 @@ class Doghouse_Location_Model_Location extends Mage_Core_Model_Abstract
 
         return $this->_hours;
     }
-
 }

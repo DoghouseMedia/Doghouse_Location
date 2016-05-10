@@ -49,12 +49,11 @@ class Doghouse_Location_Model_Resource_Hour_Collection extends Mage_Core_Model_R
         $indexA = array_search($a, $days);
         $indexB = array_search($b, $days);
 
-        if($indexA === $indexB) {
+        if ($indexA === $indexB) {
             return 0;
         }
 
         return ($indexA < $indexB) ? -1 : 1;
-
     }
 
     /**
@@ -62,9 +61,9 @@ class Doghouse_Location_Model_Resource_Hour_Collection extends Mage_Core_Model_R
      *
      * @return $this
      */
-    public function sortByWeekDay() {
-
-        if(!$this->_isCollectionLoaded) {
+    public function sortByWeekDay()
+    {
+        if (!$this->_isCollectionLoaded) {
             $this->load();
         }
 
@@ -72,5 +71,4 @@ class Doghouse_Location_Model_Resource_Hour_Collection extends Mage_Core_Model_R
 
         return $this;
     }
-
 }

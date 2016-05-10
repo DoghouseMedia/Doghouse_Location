@@ -123,7 +123,7 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Main
             "name" => "item_order",
         ));
 
-        if(Mage::registry("location_data")) {
+        if (Mage::registry("location_data")) {
             $form->setValues(Mage::registry("location_data")->getData());
         } elseif (Mage::getSingleton("adminhtml/session")->getLocationData()) {
             $form->setValues(Mage::getSingleton("adminhtml/session")->getLocationData());

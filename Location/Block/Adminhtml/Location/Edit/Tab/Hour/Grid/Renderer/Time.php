@@ -20,10 +20,9 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid_Renderer_Tim
      */
     public function render(Varien_Object $item)
     {
-        if($item->isOpen()) {
+        if ($item->isOpen()) {
             return $this->_getValue($item);
         }
         return $this->__('Closed');
     }
-
 }

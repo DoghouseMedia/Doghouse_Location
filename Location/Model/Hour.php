@@ -25,8 +25,9 @@ class Doghouse_Location_Model_Hour extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isOpen() {
-        if( strlen($this->getOpen()) || strlen($this->getClose()) ) {
+    public function isOpen()
+    {
+        if (strlen($this->getOpen()) || strlen($this->getClose())) {
             return true;
         }
         return false;
@@ -37,8 +38,8 @@ class Doghouse_Location_Model_Hour extends Mage_Core_Model_Abstract
      *
      * @return bool
      */
-    public function isClosed() {
+    public function isClosed()
+    {
         return !$this->isOpen();
     }
-
 }

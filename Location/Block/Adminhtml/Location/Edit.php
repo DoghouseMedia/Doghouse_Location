@@ -47,11 +47,10 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit extends Mage_Adminhtml_Blo
      */
     public function getHeaderText()
     {
-        if( Mage::registry("location_data") && Mage::registry("location_data")->getId() ){
+        if (Mage::registry("location_data") && Mage::registry("location_data")->getId()) {
             return Mage::helper("dhlocation")->__("Edit Location '%s'", $this->htmlEscape(Mage::registry("location_data")->getName()));
         } else {
-             return Mage::helper("dhlocation")->__("Add Location");
+            return Mage::helper("dhlocation")->__("Add Location");
         }
     }
-
 }

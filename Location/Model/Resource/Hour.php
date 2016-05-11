@@ -35,5 +35,4 @@ class Doghouse_Location_Model_Resource_Hour extends Mage_Core_Model_Resource_Db_
         $data = parent::_prepareDataForSave($object);
         return $data;
     }
-
 }

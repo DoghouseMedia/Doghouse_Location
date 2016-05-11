@@ -55,7 +55,6 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
      */
     protected function _prepareColumns()
     {
-
         $this->addColumn("hour_day", array(
             "header" => Mage::helper("dhlocation")->__("Day"),
             "index" => "day",
@@ -88,7 +87,6 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
         ));
 
         return parent::_prepareColumns();
-
     }
 
     /**
@@ -122,5 +120,4 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Grid
         ));
         return $this;
     }
-
 }

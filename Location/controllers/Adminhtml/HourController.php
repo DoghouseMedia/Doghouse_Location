@@ -17,7 +17,6 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
      */
     protected function _initLocation()
     {
-
         Mage::register('location_data', Mage::getModel('dhlocation/location'));
         $id = (int)$this->getRequest()->getParam('id');
 
@@ -37,7 +36,6 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
      */
     public function saveAction()
     {
-
         if (!$this->getRequest()->isAjax()) {
             $this->_forward('noRoute');
             return;
@@ -48,9 +46,7 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
         $postData = $this->getRequest()->getPost();
 
         if ($postData && Mage::registry('location_data')->getId()) {
-
             try {
-
                 $id = (int)$this->getRequest()->getParam('id');
 
                 $model = Mage::getModel("dhlocation/hour")
@@ -61,18 +57,15 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
                 $this->_getSession()->addSuccess(Mage::helper('core')->__('Opening hour was successfully added'));
                 $this->_initLayoutMessages('adminhtml/session');
                 $result['messages']  = $this->getLayout()->getMessagesBlock()->getGroupedHtml();
-
             } catch (Mage_Core_Exception $e) {
                 $result['error'] = $e->getMessage();
             } catch (Exception $e) {
                 $result['error'] = Mage::helper('dhlocation')->__('An error occurred.');
                 Mage::logException($e);
             }
-
         }
 
         return $this->getResponse()->setBody(Mage::helper('core')->jsonEncode($result));
-
     }
 
     /**
@@ -80,26 +73,21 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
      */
     public function massRemoveAction()
     {
-
         $ids = $this->getRequest()->getPost('hour_ids', array());
 
-        if(is_array($ids)) {
-
+        if (is_array($ids)) {
             try {
-
                 $collection = Mage::getModel('dhlocation/hour')->getCollection()
                     ->addFieldToFilter('id', array('in' => $ids));
 
-                foreach($collection as $hour) {
+                foreach ($collection as $hour) {
                     $hour->delete();
                 }
-
             } catch (Exception $e) {
                 $result['error'] = Mage::helper('dhlocation')->__('An error occurred.');
                 Mage::logException($e);
             }
         }
-
     }
 
     /**
@@ -126,5 +114,4 @@ class Doghouse_Location_Adminhtml_HourController extends Mage_Adminhtml_Controll
     {
         return Mage::getSingleton('admin/session')->isAllowed('cms/dhlocation');
     }
-
 }

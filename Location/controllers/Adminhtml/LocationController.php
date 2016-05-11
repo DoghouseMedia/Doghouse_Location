@@ -82,50 +82,46 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
      */
     public function saveAction()
     {
-
         $post_data = $this->getRequest()->getPost();
 
-            if ($post_data) {
-
-                try {
+        if ($post_data) {
+            try {
 
                     //File upload
-                    if(isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
-                        if($filename = Mage::helper('dhlocation')->saveImage('image')) {
+                    if (isset($_FILES['image']['name']) && $_FILES['image']['name'] != '') {
+                        if ($filename = Mage::helper('dhlocation')->saveImage('image')) {
                             $post_data['image'] = $filename;
                         }
                     } elseif (isset($post_data['image']['delete']) && $post_data['image']['delete']) {
                         $post_data['image'] = null;
                     }
 
-                    $model = Mage::getModel("dhlocation/location")
+                $model = Mage::getModel("dhlocation/location")
                         ->setData($post_data)
                         ->setId($this->getRequest()->getParam("id"))
                         ->save();
 
-                    Mage::getSingleton("adminhtml/session")->addSuccess(Mage::helper("adminhtml")->__("Location was successfully saved"));
-                    Mage::getSingleton("adminhtml/session")->setLocationData(false);
+                Mage::getSingleton("adminhtml/session")->addSuccess(Mage::helper("adminhtml")->__("Location was successfully saved"));
+                Mage::getSingleton("adminhtml/session")->setLocationData(false);
 
-                    if ($this->getRequest()->getParam("back")) {
-                        $this->_redirect("*/*/edit", array("id" => $model->getId()));
-                        return;
-                    }
-                    $this->_redirect("*/*/");
+                if ($this->getRequest()->getParam("back")) {
+                    $this->_redirect("*/*/edit", array("id" => $model->getId()));
                     return;
                 }
-                catch (Exception $e) {
-                    Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
-                    Mage::getSingleton("adminhtml/session")->setLocationData($this->getRequest()->getPost());
-                    if($this->getRequest()->getParam("id")) {
-                        $this->_redirect("*/*/edit", array("id" => $this->getRequest()->getParam("id")));
-                    } else {
-                        $this->_redirect("*/*/new");
-                    }
+                $this->_redirect("*/*/");
                 return;
+            } catch (Exception $e) {
+                Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
+                Mage::getSingleton("adminhtml/session")->setLocationData($this->getRequest()->getPost());
+                if ($this->getRequest()->getParam("id")) {
+                    $this->_redirect("*/*/edit", array("id" => $this->getRequest()->getParam("id")));
+                } else {
+                    $this->_redirect("*/*/new");
                 }
-
+                return;
             }
-            $this->_redirect("*/*/");
+        }
+        $this->_redirect("*/*/");
     }
 
     /**
@@ -133,19 +129,18 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
      */
     public function deleteAction()
     {
-            if( $this->getRequest()->getParam("id") > 0 ) {
-                try {
-                    $model = Mage::getModel("dhlocation/location");
-                    $model->setId($this->getRequest()->getParam("id"))->delete();
-                    Mage::getSingleton("adminhtml/session")->addSuccess(Mage::helper("adminhtml")->__("Location was successfully deleted"));
-                    $this->_redirect("*/*/");
-                }
-                catch (Exception $e) {
-                    Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
-                    $this->_redirect("*/*/edit", array("id" => $this->getRequest()->getParam("id")));
-                }
+        if ($this->getRequest()->getParam("id") > 0) {
+            try {
+                $model = Mage::getModel("dhlocation/location");
+                $model->setId($this->getRequest()->getParam("id"))->delete();
+                Mage::getSingleton("adminhtml/session")->addSuccess(Mage::helper("adminhtml")->__("Location was successfully deleted"));
+                $this->_redirect("*/*/");
+            } catch (Exception $e) {
+                Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
+                $this->_redirect("*/*/edit", array("id" => $this->getRequest()->getParam("id")));
             }
-            $this->_redirect("*/*/");
+        }
+        $this->_redirect("*/*/");
     }
 
     /**
@@ -156,12 +151,11 @@ class Doghouse_Location_Adminhtml_LocationController extends Mage_Adminhtml_Cont
         try {
             $ids = $this->getRequest()->getPost('ids', array());
             foreach ($ids as $id) {
-                  $model = Mage::getModel("dhlocation/location");
-                  $model->setId($id)->delete();
+                $model = Mage::getModel("dhlocation/location");
+                $model->setId($id)->delete();
             }
             Mage::getSingleton("adminhtml/session")->addSuccess(Mage::helper("adminhtml")->__("%s location(s) successfully removed", count($ids)));
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             Mage::getSingleton("adminhtml/session")->addError($e->getMessage());
         }
         $this->_redirect('*/*/');

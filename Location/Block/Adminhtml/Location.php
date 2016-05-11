@@ -25,5 +25,4 @@ class Doghouse_Location_Block_Adminhtml_Location extends Mage_Adminhtml_Block_Wi
         $this->_addButtonLabel = Mage::helper("dhlocation")->__("Add Store Location");
         parent::__construct();
     }
-
 }

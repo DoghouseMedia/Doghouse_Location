@@ -84,5 +84,4 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Tab_Hour_Form
     {
         return $this->getUrl('*/hour/save');
     }
-
 }

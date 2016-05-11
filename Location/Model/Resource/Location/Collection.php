@@ -18,5 +18,4 @@ class Doghouse_Location_Model_Resource_Location_Collection extends Mage_Core_Mod
     {
         $this->_init('dhlocation/location');
     }
-
 }

@@ -45,7 +45,6 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
      */
     protected function _prepareColumns()
     {
-
         $this->addColumn("id", array(
             "header" => Mage::helper("dhlocation")->__("ID"),
             "align" =>"right",
@@ -111,7 +110,6 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
         Mage::dispatchEvent('dhlocation_location_grid_prepare_after', array('block' => $this));
 
         return parent::_prepareColumns();
-
     }
 
     /**
@@ -152,5 +150,4 @@ class Doghouse_Location_Block_Adminhtml_Location_Grid extends Mage_Adminhtml_Blo
         ));
         return $this;
     }
-
 }

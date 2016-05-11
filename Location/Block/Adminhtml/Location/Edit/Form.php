@@ -41,5 +41,4 @@ class Doghouse_Location_Block_Adminhtml_Location_Edit_Form extends Mage_Adminhtm
         $this->setForm($form);
         return parent::_prepareForm();
     }
-
 }
